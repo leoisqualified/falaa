@@ -47,6 +47,7 @@ class Order(Base):
     status: Mapped[OrderStatus] = mapped_column(
         Enum(OrderStatus),
         default=OrderStatus.PENDING_PAYMENT,
+        index=True
     )
 
     handshake_code: Mapped[Optional[str]] = mapped_column(String(4))
