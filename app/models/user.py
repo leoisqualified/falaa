@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import enum
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from sqlalchemy import Boolean, DateTime, Enum, String
@@ -39,7 +39,7 @@ class User(Base):
 
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
+        DateTime, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc)
     )
 
     products = relationship("Product", back_populates="seller")
