@@ -17,7 +17,7 @@ class Wallet(Base):
 
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id"),
-        unique=True,
+        unique=True, index=True
     )
 
     balance: Mapped[Decimal] = mapped_column(Numeric(12, 2), default=0)

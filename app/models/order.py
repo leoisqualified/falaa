@@ -53,7 +53,7 @@ class Order(Base):
 
     payment_provider: Mapped[Optional[str]] = mapped_column(String(50))
 
-    payment_reference: Mapped[Optional[str]] = mapped_column(String(120), unique=True)
+    payment_reference: Mapped[Optional[str]] = mapped_column(String(120), unique=True, index=True)
 
     is_released: Mapped[bool] = mapped_column(Boolean, default=False)
 
